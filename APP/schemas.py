@@ -15,17 +15,17 @@ class ContactRequestIn(BaseModel):
 
     @validator('name')
     def name_must_be_under_50_chars(cls, v):
-        assert(len(v) > 50), "must have under 50 chars"
+        assert(len(v) < 50), "must have under 50 chars"
         return v
 
     @validator('email')
     def email_must_be_under_50_chars(cls, v):
-        assert(len(v) > 50), "must have under 50 chars"
+        assert(len(v) < 50), "must have under 50 chars"
         return v
 
     @validator('message')
     def message_must_be_under_50_chars(cls, v):
-        assert(len(v) > 50), "must have under 50 chars"
+        assert(len(v) < 50), "must have under 50 chars"
         return v
 
     class Config:
@@ -41,3 +41,44 @@ class ContactRequestOut(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class UserShow(BaseModel):
+    id: Optional[StrictInt]
+    email: Optional[EmailStr]
+    firstname: Optional[StrictStr]
+    lastname: Optional[StrictStr]
+    role: Optional[StrictStr]
+
+    @validator('lastname')
+    def lastname_must_be_under_50_chars(cls, v):
+        assert(len(v) < 50), 'must have under 50 chars'
+        return v
+
+    @validator('firstname')
+    def firstname_must_be_under_50_chars(cls, v):
+        assert(len(v) < 50), 'must have under 50 chars'
+        return v
+
+    @validator('role')
+    def member(cls, v):
+        assert(v in ['student', 'teacher']), 'must be student or teacher'
+        return v
+
+    class Config:
+        orm_mode = True
+
+
+class UserSignUp(UserShow):
+    password: StrictStr
+    confirmation_password: StrictStr
+
+    @validator('password')
+    def pass_between_8_and_50_chars(cls, v):
+        assert(len(v) < 50 and len(v) > 8), 'must have between 8 and 50 chars'
+        return v
+
+    @validator('confirmation_password')
+    def confpass_between_8_and_50_chars(cls, v):
+        assert(len(v) < 50 and len(v) > 8), 'must have between 8 and 50 chars'
+        return v
