@@ -4,7 +4,7 @@ from pydantic import (BaseModel,
                       StrictStr,
                       StrictInt,
                       validator)
-                      
+
 from typing import Optional
 
 
