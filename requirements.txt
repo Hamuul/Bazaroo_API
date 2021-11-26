@@ -1,0 +1,8 @@
+cryptography==35.0.0
+email-validator==1.1.3
+fastapi==0.70.0
+passlib==1.7.4
+python-jose==3.3.0
+python-multipart==0.0.5
+SQLAlchemy==1.4.27
+uvicorn==0.15.0
