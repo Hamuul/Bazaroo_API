@@ -47,6 +47,7 @@ def del_req(id, db: Session = Depends(get_db)):
     else:
         db.query(models.ContactRequest).filter(
             models.ContactRequest.id == id).delete(synchronize_session=False)
+        db.commit()
 
 
 @router.patch("/{id}", status_code=status.HTTP_202_ACCEPTED)
