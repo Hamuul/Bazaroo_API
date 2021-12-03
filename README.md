@@ -6,4 +6,4 @@ Pentru a rula aplicația trebuie să aveți instalat interpretorul de python și
 pip install -r requirements.txt
 ```
 
-Am implementat toate endpointurile conform specificatiilor cu excepția ```POST /tutoring-classes```  si ```POST /tutoring-class/{id}/enroll```. Parolele sunt stocate în baza de date cu bcrypt. 
+Am implementat toate endpointurile conform specificatiilor cu excepția ```POST /tutoring-classes```  si </br> ```POST /tutoring-class/{id}/enroll```. Parolele sunt stocate în baza de date cu bcrypt.
