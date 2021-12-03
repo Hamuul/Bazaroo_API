@@ -1,6 +1,6 @@
 Am ales proba de backend.
 
-Pentru a rula aplicația trebuie să aveți instalat interpretorul de python și managerul de pachete pip, apoi să rulați comenzile de mai jos. Pentru verificarea tabelelor din baza de date puteți folosi TablePlus sau alte tooluri similare.
+Pentru a rula aplicația trebuie să aveți instalat interpretorul de python și managerul de pachete pip (și să le aveți în variabila PATH), apoi să rulați comenzile de mai jos. Pentru verificarea tabelelor din baza de date puteți folosi TablePlus sau alte tooluri similare.
 
 ```bash
 pip install -r requirements.txt
