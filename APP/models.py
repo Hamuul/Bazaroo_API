@@ -1,7 +1,12 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Table
 from sqlalchemy.orm import relationship
 
-from .database import Base
+from APP.database import Base
+
+enrolment_table = \
+    Table('enrolment', Base.metadata,
+          Column('tutoring_class_id', ForeignKey('tutoring_classes.id')),
+          Column('user_id', ForeignKey('users.id')))
 
 
 class ContactRequest(Base):
@@ -25,7 +30,7 @@ class User(Base):
     role = Column(String(length=7))
 
     review = relationship("Review")
-    tutor = relationship("TutoringClass")
+    tutor = relationship("TutoringClass", secondary=enrolment_table)
 
 
 class Review(Base):

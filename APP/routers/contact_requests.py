@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from pydantic import StrictBool
 from typing import List
 
-from ..database import get_db
-from ..schemas import ContactRequestOut, ContactRequestIn
-from .. import models
+from APP.database import get_db
+from APP.schemas import ContactRequestOut, ContactRequestIn
+from APP import models
 
 router = APIRouter()
 

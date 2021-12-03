@@ -2,9 +2,9 @@ from fastapi import APIRouter, status, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 
-from ..database import get_db
-from ..schemas import ClassUpdate, ClassShow, ClassCreate
-from .. import models
+from APP.database import get_db
+from APP.schemas import ClassUpdate, ClassShow, ClassCreate
+from APP import models
 
 router = APIRouter()
 
@@ -56,3 +56,8 @@ def update_class(id, req: ClassUpdate, db: Session = Depends(get_db)):
     db.commit()
     return 'Tutoring class description updated'
     return 'Tutoring class description updated'
+
+
+@router.post("/{id}/enroll", status_code=status.HTTP_201_CREATED)
+def enroll_user(id, db: Session = Depends(get_db)):
+    pass

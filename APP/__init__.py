@@ -8,8 +8,8 @@ from APP.routers import (
                         reviews,
                         tutoring_classes,)
 
-from .database import engine
-from . import models
+from APP.database import engine
+from APP import models
 
 
 models.Base.metadata.create_all(engine)
